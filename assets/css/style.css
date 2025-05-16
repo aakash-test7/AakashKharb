@@ -554,7 +554,23 @@ section {
 #main .food-ratings .food-category {
   background: #ffffff;
 }
+@media (max-width: 600px) {
+  .full-name {
+    display: none;
+  }
+  .short-name {
+    display: inline;
+  }
+}
 
+@media (min-width: 601px) {
+  .full-name {
+    display: inline;
+  }
+  .short-name {
+    display: none;
+  }
+}
 /* Adjust section padding to accommodate the sidebar */
 @media (min-width: 1200px) {
   #main section {
@@ -1647,9 +1663,8 @@ h2,
 }
 
 #footer .credits {
-  padding-top: 5px;
   text-align: center;
-  font-size: 13px;
+  font-size: 20px;
   color: #eaebf0;
 }
 
