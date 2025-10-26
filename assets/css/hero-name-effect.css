@@ -1,0 +1,110 @@
+/* Hero Name Scramble Effect - Font Cycling on Hover */
+
+.hero-name-scramble {
+    display: inline-block;
+    white-space: nowrap;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    /* Prevent container from shifting */
+    min-height: 1.2em;
+    overflow: visible;
+    letter-spacing: normal;
+}
+
+/* Ensure short-name also uses Orbitron */
+.hero-name .short-name {
+    font-family: 'Orbitron', sans-serif;
+    color: white;
+}
+
+/* Responsive name display - ensure proper switching */
+@media (max-width: 600px) {
+  .hero-name .full-name {
+    display: none !important;
+  }
+  .hero-name .short-name {
+    display: inline !important;
+  }
+}
+
+@media (min-width: 601px) {
+  .hero-name .full-name {
+    display: inline !important;
+  }
+  .hero-name .short-name {
+    display: none !important;
+  }
+}
+
+/* Per-character styles for the hero name */
+.hero-char {
+    display: inline-block;
+    padding: 0;
+    transition: font-family 160ms ease;
+    cursor: default;
+    font-family: 'Orbitron', sans-serif;
+    color: white;
+    /* Allow horizontal flexibility but prevent vertical displacement */
+    text-align: center;
+    vertical-align: baseline;
+    line-height: 1;
+    position: relative;
+    /* Prevent layout shift */
+    will-change: font-family;
+}
+
+/* Six different font styles cycling through on hover */
+.hero-font1 { 
+    font-family: 'Ballet', serif; 
+    color: white;
+}
+
+.hero-font2 { 
+    font-family: 'Bitcount Grid Single', monospace; 
+    color: white;
+}
+
+.hero-font3 { 
+    font-family: 'Cinzel', serif; 
+    color: white;
+}
+
+.hero-font4 { 
+    font-family: 'Felipa', cursive; 
+    color: white;
+    font-weight: 600; 
+}
+
+.hero-font5 { 
+    font-family: 'Honk', system-ui; 
+    color: white;
+    font-style: normal; 
+}
+
+.hero-font6 { 
+    font-family: 'Playwrite DE SAS', cursive; 
+    color: white;
+}
+
+/* Preserve space characters */
+.hero-char.space {
+    padding: 0;
+    min-width: 0.25em;
+}
+
+/* Animation for initial load */
+@keyframes heroGlow {
+    0% {
+        text-shadow: 0 0 10px rgba(0, 219, 222, 0.5);
+    }
+    50% {
+        text-shadow: 0 0 20px rgba(252, 0, 255, 0.5);
+    }
+    100% {
+        text-shadow: none;
+    }
+}
+
+.hero-name-scramble.loaded {
+    animation: heroGlow 1s ease-in-out;
+}
